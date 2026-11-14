@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dạm Ngõ Như Ý - Minh Hiếu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#9b1c2e;--cream:#fbf6f0;--ink:#2a1a1a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Noto Sans",system-ui,Arial,sans-serif;font-size:20px;line-height:1.5}
+header{text-align:center;padding:36px 16px 20px}
+h1{margin:0;font-family:"Noto Serif",Georgia,serif;color:var(--red);font-size:clamp(28px,7.5vw,50px);font-weight:700}
+header p{margin:8px 0 0;font-size:20px;color:#6b4a4a}
+section{max-width:1100px;margin:0 auto;padding:12px 14px 28px}
+h2{font-family:"Noto Serif",Georgia,serif;color:var(--red);font-size:28px;margin:20px 0 12px;border-bottom:2px solid #e6d3c6;padding-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;grid-auto-flow:dense}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr);gap:14px}}
+.grid button{padding:0;border:0;background:#e9dccf;border-radius:10px;overflow:hidden;cursor:pointer;aspect-ratio:3/4}
+.grid button.wide{grid-column:span 2;aspect-ratio:3/2}
+.grid img{width:100%;height:100%;object-fit:cover;display:block}
+footer{text-align:center;color:#8a6d6d;padding:10px 16px 40px;font-size:16px}
+#lb{position:fixed;inset:0;background:#000;display:none;flex-direction:column;z-index:10;touch-action:pan-y}
+#lb.on{display:flex}
+#stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:6px}
+#stage img{max-width:100%;max-height:100%;object-fit:contain}
+.bar{display:flex;gap:8px;justify-content:space-between;align-items:center;padding:10px;background:#111}
+.bar button,.bar a{flex:1;text-align:center;font-size:22px;font-weight:700;padding:16px 4px;border-radius:12px;border:0;color:#fff;background:#444;text-decoration:none;cursor:pointer}
+.bar .dl{background:var(--red);flex:1.6}
+#cnt{color:#ddd;text-align:center;padding:8px;font-size:18px;background:#111}
+#x{position:absolute;top:8px;right:8px;width:56px;height:56px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:32px;cursor:pointer;z-index:2}
+</style>
+</head>
+<body>
+<header>
+  <h1>Dạm Ngõ Như Ý - Minh Hiếu</h1>
+  <p>Chạm vào ảnh để xem lớn · Vuốt sang trái/phải để xem ảnh khác</p>
+</header>
+
+<div id="sections"></div>
+<footer>Link riêng tư, chỉ gửi cho người thân.</footer>
+
+<div id="lb" role="dialog" aria-modal="true">
+  <button id="x" aria-label="Đóng">×</button>
+  <div id="stage"><img id="big" alt=""></div>
+  <div id="cnt"></div>
+  <div class="bar">
+    <button id="prev">◀ Trước</button>
+    <a class="dl" id="dl" download>⬇ Tải ảnh</a>
+    <button id="next">Sau ▶</button>
+  </div>
+</div>
+
+<script>
+const SECTIONS = [{"key": "nha-trai", "title": "Nhà trai đến", "items": [{"f": "nha-trai-01.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-02.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-03.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-04.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-05.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-06.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-07.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-08.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-09.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-10.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-11.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-12.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-13.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-14.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-15.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-16.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-17.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-18.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-19.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-20.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-21.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-22.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-23.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-24.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-25.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-26.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-27.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-28.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-29.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-30.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-31.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-32.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-33.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-34.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-35.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-36.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-37.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-38.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-39.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-40.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-41.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-42.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-43.jpg", "w": 1362, "h": 2048}, {"f": "nha-trai-44.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-45.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-46.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-47.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-48.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-49.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-50.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-51.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-52.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-53.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-54.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-55.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-56.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-57.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-58.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-59.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-60.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-61.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-62.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-63.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-64.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-65.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-66.jpg", "w": 2048, "h": 1363}, {"f": "nha-trai-67.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-68.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-69.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-70.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-71.jpg", "w": 1363, "h": 2048}, {"f": "nha-trai-72.jpg", "w": 1363, "h": 2048}]}];
+
+const all = [];
+const root = document.getElementById('sections');
+SECTIONS.forEach(s => {
+  const sec = document.createElement('section');
+  sec.innerHTML = '<h2>' + s.title + ' (' + s.items.length + ' ảnh)</h2>';
+  const g = document.createElement('div'); g.className = 'grid';
+  s.items.forEach(it => {
+    const idx = all.length; all.push(it);
+    const b = document.createElement('button');
+    if (it.w > it.h) b.className = 'wide';
+    b.setAttribute('aria-label', 'Xem ảnh ' + (idx + 1));
+    b.innerHTML = '<img loading="lazy" src="thumb/' + it.f + '" alt="">';
+    b.onclick = () => open(idx);
+    g.appendChild(b);
+  });
+  sec.appendChild(g); root.appendChild(sec);
+});
+
+const lb = document.getElementById('lb'), big = document.getElementById('big'),
+      cnt = document.getElementById('cnt'), dl = document.getElementById('dl');
+let cur = 0;
+function show(i) {
+  cur = (i + all.length) % all.length;
+  const f = all[cur].f;
+  big.src = 'img/' + f; dl.href = 'img/' + f; dl.setAttribute('download', f);
+  cnt.textContent = (cur + 1) + ' / ' + all.length;
+  const n = new Image(); n.src = 'img/' + all[(cur + 1) % all.length].f;
+}
+function open(i) { show(i); lb.classList.add('on'); document.body.style.overflow = 'hidden'; }
+function close() { lb.classList.remove('on'); document.body.style.overflow = ''; }
+document.getElementById('x').onclick = close;
+document.getElementById('prev').onclick = () => show(cur - 1);
+document.getElementById('next').onclick = () => show(cur + 1);
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('on')) return;
+  if (e.key === 'Escape') close();
+  if (e.key === 'ArrowLeft') show(cur - 1);
+  if (e.key === 'ArrowRight') show(cur + 1);
+});
+let sx = null;
+lb.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive: true});
+lb.addEventListener('touchend', e => {
+  if (sx === null) return;
+  const d = e.changedTouches[0].clientX - sx; sx = null;
+  if (Math.abs(d) > 50) show(cur + (d < 0 ? 1 : -1));
+});
+</script>
+</body>
+</html>
