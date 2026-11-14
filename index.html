@@ -40,6 +40,7 @@ footer{text-align:center;color:#8a6d6d;padding:10px 16px 40px;font-size:16px}
 <header>
   <h1>Minh Hiếu &amp; Như Ý</h1>
   <p>Chạm vào ảnh để xem lớn · Vuốt sang trái/phải để xem ảnh khác</p>
+  <p class="center" style="margin-top:16px"><a class="btn" href="dam-ngo/">📷 Xem ảnh Dạm Ngõ</a></p>
 </header>
 
 <section id="vsec" style="display:none">
@@ -82,7 +83,7 @@ const all = [];
 const root = document.getElementById('sections');
 SECTIONS.forEach(s => {
   const sec = document.createElement('section');
-  sec.innerHTML = '<h2>' + s.title + ' (' + s.items.length + ' ảnh)</h2>';
+  sec.innerHTML = '<h2>' + s.title + '</h2>';
   const g = document.createElement('div'); g.className = 'grid';
   s.items.forEach(it => {
     const idx = all.length; all.push(it);
